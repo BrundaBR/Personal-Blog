@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "nodemon": "^2.0.19"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Brand",
+  "main": "src/index.js",
+  "scripts": {
+    "start":"nodemon src/index.js",
+    "dev":"nodemon src/index.js",
+    "lint":"eslint src/"
+  },
+  "author": "Brunda",
+  "license": "ISC"
+}
