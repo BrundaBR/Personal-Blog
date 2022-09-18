@@ -1,3 +1,4 @@
+
 .Nav {
     padding: 0;
     margin: 0;
@@ -5,8 +6,17 @@
     justify-content: space-around;
     min-height: 10vh;
     background-color: beige;
+    text-decoration: none;
+    
 
-
+}
+.Nav a{
+    text-decoration: none;
+    color: black;
+}
+.Nav a:hover{
+    color: brown;
+        transition: width 2s, height 2s;
 }
 
 .links ul{
@@ -16,8 +26,31 @@
     justify-content: space-around;
     list-style: none;
 }
-
+.links li,.links a{
+    padding-left: 10px;
+    text-decoration: none;
+    color: black;
+}
+.links li:hover{
+    color: brown;
+    transition: width 2s, height 4s;
+}
 .SearchForm{
     margin-top: 2vh;
     }
+.AdminForm{
+    justify-content: space-between;
+    padding-left: 100px;
 
+}
+.AdminForm input{
+    padding: 10px;
+    
+}
+.AdminForm button{
+ margin: 0px;
+ background-color: lightblue;
+ color: black;
+ border-radius: 1 rem;
+ width: 100px;
+}

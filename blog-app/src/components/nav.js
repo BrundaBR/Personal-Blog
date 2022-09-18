@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
+
 const NavBar = () => {
    
   return (
@@ -10,9 +11,9 @@ const NavBar = () => {
         <div className="links">
 
                   <ul>
-                      <Link  to='/about'><li>About</li></Link>
-                      <Link to='/contact'><li>Contact</li></Link>
-                      <Link to='/portfolio'><li>Portfolio</li></Link>
+                      <Router><Link  to='./about'><li>About</li></Link></Router>
+                      <Router><Link to='/contact'><li>Contact</li></Link></Router>
+                     <Router> <Link to='/portfolio'><li>Portfolio</li></Link></Router>
                              
             </ul>
         </div>
