@@ -54,3 +54,28 @@
  border-radius: 1 rem;
  width: 100px;
 }
+.BlogDisplay,.component{
+    max-width: 90%;
+    display: flex;
+    justify-content: space-around;  
+    padding: 10px 10px 10px 10px;
+    float: left;
+    left:0;
+}
+.TagsBar ,.Tags{
+        background: rgb(5, 68, 104);
+            position: fixed;
+            top:11vh;
+            right: 0;
+            width: 20%;
+            height: 100%;
+            justify-content: space-around;
+            padding: 10px;
+}
+.Tags h3{
+    text-align: center;
+
+}
+.recentblogs{
+    padding: 50px;
+}

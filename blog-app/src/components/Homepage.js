@@ -1,6 +1,6 @@
 import React from "react";
 import Bloglist from "./blogs";
-
+import TagsBar from "./Sidebar";
 
 const HomePage = () => {
 
@@ -8,15 +8,14 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>Home Page</h1>
-            <h2>Recent Blogs</h2>
+            <h2 className="recentblogs">Recent Blogs</h2>
+            <div className="component">
             <Bloglist />
-
-
-            
-
-            
-        </div>
+            <div className="Tags">
+                    <TagsBar />
+                </div>
+                </div>
+         </div>
     )
     
 }

@@ -12,7 +12,7 @@ const Bloglist = () => {
 
     useEffect(() => {
         // Subscribe to query with onSnapshot
-        const unsubscribe = Blogs.limit(100).onSnapshot(querySnapshot => {
+        const unsubscribe = Blogs.limit(3).onSnapshot(querySnapshot => {
           // Get all documents from collection - with IDs
           const data = querySnapshot.docs.map(doc => ({
             ...doc.data(),
@@ -27,27 +27,27 @@ const Bloglist = () => {
       }, []);
 
     return (
-        <div >
+        <div className='BlogDisplay'>
 
 
             {
-                blogslist.map(blog => (
-                    console.log(blog),
-                <div key={blog.id}>
-                
-                        <p>Title : {blog.Title}</p>
-                        <p>body: {blog.Body} </p>
+          blogslist.map(blog => (
+                   
+                    console.log(blog.Image),
+                  <div key={blog.id}> 
+                    <p>{blog.Title}</p>
+                    <img src={blog.Image}></img>
+                    <p >{blog.Body.substring(0, 40)}</p>
+                        {/* <p>body: {blog.Body} </p> */}
                         <p>Date: {blog.Date} </p>
-                        <p>Tag: {blog.Tag} </p>
-                        <p>Image: {blog.Image} </p>
+                        <p>Tags: {blog.Tag} </p>
+                        
                 <Link to={"/blog/"+blog.id}
                     className="mr-2 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 border border-indigo-500 rounded"
                     >Read More
                         </Link>
-                        <hr></hr>
-    
-</div>          
-            ))}
+                         </div>          
+            )).sort()}
             
 
     </div>

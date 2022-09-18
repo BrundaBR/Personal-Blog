@@ -4,9 +4,8 @@ import Contact from "./components/Contact";
 import Portfolio from "./components/Portfolio";
 import Admin from "./components/Admin";
 import HomePage from "./components/Homepage";
-
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
+import TagsBar from "./components/Sidebar";
 const App = () => {
   //Hooks!
   return (
@@ -21,9 +20,14 @@ const App = () => {
         <Route path='/contact' component={Contact} />
         <Route path='/portfolio' component={Portfolio} />
         <Route path='/admin-page-onlyadmin' component={Admin} />
-</Switch>
+        </Switch>
+        
+
       </div>
-      </Router>
+    </Router>
+                
+                
+
   );
 };
 
