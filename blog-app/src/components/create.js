@@ -1,4 +1,4 @@
-import fb from './firebase';
+import fb from '../firebase';
 import React, {useState} from 'react';
 
 const DB = fb.firestore();

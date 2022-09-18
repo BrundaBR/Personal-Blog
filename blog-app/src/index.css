@@ -1,14 +1,23 @@
 .Nav {
     padding: 0;
     margin: 0;
-}
-.navbar{
     display: flex;
-    margin: 0px;
-    background-color: aqua;
-    height:70px;
+    justify-content: space-around;
+    min-height: 10vh;
+    background-color: beige;
+
+
 }
-.links{
+
+.links ul{
+    text-decoration: none;
+    width: 50%;
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    list-style: none;
 }
+
+.SearchForm{
+    margin-top: 2vh;
+    }
+
