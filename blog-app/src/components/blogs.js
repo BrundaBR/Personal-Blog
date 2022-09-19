@@ -20,6 +20,7 @@ const Bloglist = () => {
           }));
           // Update state
           setblogs(data);
+
         });
 
         // Detach listener
@@ -32,7 +33,6 @@ const Bloglist = () => {
 
             {
           blogslist.map(blog => (
-                   
                     console.log(blog.Image),
                   <div key={blog.id}> 
                     <p>{blog.Title}</p>
@@ -47,7 +47,8 @@ const Bloglist = () => {
                     >Read More
                         </Link>
                          </div>          
-            )).sort()}
+          )).sort()}
+       
             
 
     </div>
