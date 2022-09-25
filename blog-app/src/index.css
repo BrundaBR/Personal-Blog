@@ -7,8 +7,7 @@
     min-height: 10vh;
     background-color: beige;
     text-decoration: none;
-    width: 100%;
-    
+    width: 100%; 
 
 }
 .Nav a{
@@ -70,9 +69,8 @@
     left:0;
 }
 .TagsBar ,.Tags{
-        background: rgb(5, 68, 104);
             position: fixed;
-            top:11vh;
+            top:20vh;
             right: 0;
             width: 15%;
             height: 100%;
@@ -82,4 +80,71 @@
 .Tags h3{
     text-align: center; 
 
+}
+.footbar{
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    display: flex;    
+    background-color: antiquewhite;
+
+}
+.footbar ,.copywrite p{
+    text-align: center;
+
+}
+/*mobile view*/
+
+@media only screen and (max-width:848px){
+.Nav {
+        padding: 0;
+        margin: 0;
+        display: block;
+        min-height: 5vh;
+        background-color: beige;
+        text-decoration: none;
+        width: 100%;
+
+    }
+    .icon-name{
+        text-align: center;
+}
+.SearchForm{
+    text-align: center;
+}
+.links a,.Nav a{
+    text-align: center;
+}
+.links ul ,.links li{
+    text-decoration: none;
+    display: flex;
+    list-style: none;
+    color: black;
+}
+
+.links li:hover {
+    color: brown;
+    transition: width 2s, height 4s;
+}
+
+
+.TagsBar,
+.Tags {
+    background: rgb(5, 68, 104);
+    display: none;
+    
+    
+}
+
+
+
+.BlogDisplay,
+.component {
+    max-width: 100%;
+    display: flex;
+        flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+}
 }

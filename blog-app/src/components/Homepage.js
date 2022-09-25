@@ -1,7 +1,7 @@
 import React from "react";
 import Bloglist from "./blogs";
 import TagsBar from "./Sidebar";
-
+import FooterBar from "./footer";
 const HomePage = () => {
 
             
@@ -14,7 +14,9 @@ const HomePage = () => {
             <div className="Tags">
                     <TagsBar />
                 </div>
-                </div>
+            </div>
+
+            
          </div>
     )
     

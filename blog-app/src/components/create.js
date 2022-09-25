@@ -11,7 +11,7 @@ const CreateBlog = () => {
     const [date, SetDate] = useState("");
     const [tag, SetTag] = useState("");
     const [image, SetImage] = useState("");
-   
+
     const Submit = (e) => {
         
         e.preventDefault();
@@ -43,9 +43,9 @@ const CreateBlog = () => {
                 </textarea>
                 <input type='date' placeholder='Date' onChange={(e) => { SetDate(e.target.value) }} required ></input>
                 <input type='text' placeholder='Tag' onChange={(e) => { SetTag(e.target.value) }} required ></input>
-                <input type='file' placeholder='Image' onChange={(e) => { SetImage(e.target.value) }} required ></input>
+                <input type='file' placeholder='Image' onChange={(e) => { SetImage(e.target.files) }} required ></input>
 
-                <button type="submit">Submit</button>
+                <button type="submit" >Submit</button>
             </form>
             
         </div>
