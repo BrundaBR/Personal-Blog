@@ -11,7 +11,7 @@ import FooterBar from "./components/footer";
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import BlogView from "./components/show";
 const App = () => {
-  //Hooks!
+  //Hooks! 
   return (
     <Router>
   <div >

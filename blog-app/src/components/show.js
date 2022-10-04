@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import fb from '../firebase'
+import { fb } from '../firebase'
 const DB = fb.firestore()
 const Blogslist = DB.collection('create_blog')
 const BlogView = () => {
@@ -10,8 +10,7 @@ const BlogView = () => {
     Blogslist.doc(id).get().then((snapshot) => {
 
         const data = snapshot.data()
-        console.log(data)
-    Setblogs(data);
+        Setblogs(data);
 } );
 return (
     <div>

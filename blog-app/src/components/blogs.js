@@ -1,6 +1,6 @@
 import React, { useState, useEffect }from 'react'
 import { Link } from "react-router-dom";
-import fb from '../firebase'
+import { fb } from '../firebase'
 
 
 const db = fb.firestore()
@@ -36,7 +36,6 @@ const Bloglist = () => {
             {
           blogslist.map(blog => (
             <div key={Blogs.id}>
-                    console.log(blog.Image),
                   <div key={blog.id}> 
                     <p>{blog.Title}</p>
                     <img alt='image' src={blog.Image}></img>

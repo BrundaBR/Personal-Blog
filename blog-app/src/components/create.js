@@ -1,8 +1,9 @@
-import fb from '../firebase';
+import { store,fb} from '../firebase';
 import React, {useState} from 'react';
-
 const DB = fb.firestore();
 const Blogslist = DB.collection('create_blog');
+
+    // Handle file upload event and update state
 
 const CreateBlog = () => {
 
@@ -10,7 +11,45 @@ const CreateBlog = () => {
     const [body, SetBody] = useState("");
     const [date, SetDate] = useState("");
     const [tag, SetTag] = useState("");
-    const [image, SetImage] = useState("");
+    const [file, setFile] = useState(null);
+ 
+    // progress
+    const [percent, setPercent] = useState(0);
+    
+    function handleChange(event) {
+        setFile(event.target.files[0]);
+    const storageRef = store.ref(store, `/files/${file.name}`);
+
+            const uploadTask = store.uploadBytesResumable(storageRef, file);
+ 
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const percent = Math.round(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+ 
+            // update progress
+            setPercent(percent);
+        },
+        (err) => console.log(err),
+        () => {
+            // download url
+            store.getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                console.log(url);
+            });
+        }
+    );
+    }
+ 
+   
+
+ 
+    // progress can be paused and resumed. It also exposes progress updates.
+    // Receives the storage reference and the file to upload.
+
+  
+
 
     const Submit = (e) => {
         
@@ -20,7 +59,6 @@ const CreateBlog = () => {
             Body: body,
             Date: date,
             Tag: tag,
-            Image: image
         }).then((docRef) => {
             alert("Data added")
             e.target.reset();
@@ -34,7 +72,7 @@ const CreateBlog = () => {
     };
     return (
         <div>
-            <form className="AdminForm" onSubmit={(event) => { Submit(event)}}>
+            <form className="AdminForm" onSubmit={(event) => { Submit(event) }}>
                 <input type="text" placeholder="Title"
                     onChange={(e) => { SetTitle(e.target.value) }} required />
 
@@ -43,13 +81,14 @@ const CreateBlog = () => {
                 </textarea>
                 <input type='date' placeholder='Date' onChange={(e) => { SetDate(e.target.value) }} required ></input>
                 <input type='text' placeholder='Tag' onChange={(e) => { SetTag(e.target.value) }} required ></input>
-                <input type='file' placeholder='Image' onChange={(e) => { SetImage(e.target.files) }} required ></input>
-
+                <input type="file" onChange={handleChange(Event) } accept="/image/*" />
                 <button type="submit" >Submit</button>
             </form>
             
         </div>
     );
+    
+
 };
 
 export default CreateBlog;
