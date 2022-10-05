@@ -1,9 +1,11 @@
-import { store,fb} from '../firebase';
-import React, {useState} from 'react';
+import { store, fb } from '../firebase';
+import React, { useState } from 'react';
+// import { register } from "react-hook-form";
+
 const DB = fb.firestore();
 const Blogslist = DB.collection('create_blog');
 
-    // Handle file upload event and update state
+
 
 const CreateBlog = () => {
 
@@ -11,45 +13,39 @@ const CreateBlog = () => {
     const [body, SetBody] = useState("");
     const [date, SetDate] = useState("");
     const [tag, SetTag] = useState("");
-    const [file, setFile] = useState(null);
- 
-    // progress
-    const [percent, setPercent] = useState(0);
+    const [file, setFile] = useState("");
+    const [img,Seturl ]= useState('');
+
     
     function handleChange(event) {
-        setFile(event.target.files[0]);
-    const storageRef = store.ref(store, `/files/${file.name}`);
-
-            const uploadTask = store.uploadBytesResumable(storageRef, file);
- 
-    uploadTask.on(
+        const fileimg = event.target.files[0];
+        setFile(fileimg);
+        const storageRef = store.ref("files/" + fileimg.name);
+        // const upload = store.uploadBytesResumable(storageRef, file);
+        storageRef.put(file).on(
         "state_changed",
-        (snapshot) => {
-            const percent = Math.round(
-                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
- 
-            // update progress
-            setPercent(percent);
+        (snap) => {
+            console.log('percent');
         },
-        (err) => console.log(err),
-        () => {
-            // download url
-            store.getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                console.log(url);
-            });
+            (err) => {
+                        console.log(err);
+
+        },
+        async () => {
+          const url = await storageRef.getDownloadURL();
+            Seturl(url);
+
         }
-    );
-    }
- 
-   
+      );
+    
 
- 
-    // progress can be paused and resumed. It also exposes progress updates.
-    // Receives the storage reference and the file to upload.
-
-  
-
+        // const uploadTask = store.uploadBytesResumable(storageRef, file);
+        // store.getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+        //     console.log(url);
+        //      Seturl(url);
+    //  });
+        
+    };
 
     const Submit = (e) => {
         
@@ -59,6 +55,7 @@ const CreateBlog = () => {
             Body: body,
             Date: date,
             Tag: tag,
+            Image:img
         }).then((docRef) => {
             alert("Data added")
             e.target.reset();
@@ -81,7 +78,7 @@ const CreateBlog = () => {
                 </textarea>
                 <input type='date' placeholder='Date' onChange={(e) => { SetDate(e.target.value) }} required ></input>
                 <input type='text' placeholder='Tag' onChange={(e) => { SetTag(e.target.value) }} required ></input>
-                <input type="file" onChange={handleChange(Event) } accept="/image/*" />
+                <input type="file"  onChange={handleChange} accept="/image/*" />
                 <button type="submit" >Submit</button>
             </form>
             
