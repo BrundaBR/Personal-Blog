@@ -26,7 +26,7 @@ const App = () => {
           <Route path='/admin-page-onlyadmin' component={Admin} />
            <Route path='/general'  exact component={General}/>
         <Route path='/data-structure-and-algorithm' component={DSA} />
-          <Route path='/astrophysics' element={<Astrophysics />} />
+          <Route path='/astrophysics' component={Astrophysics} />
           <Route path='/show/:id' component={BlogView} />
         </Switch>
         

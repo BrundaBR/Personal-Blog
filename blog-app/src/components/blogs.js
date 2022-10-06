@@ -1,7 +1,11 @@
 import React, { useState, useEffect }from 'react'
 import { Link } from "react-router-dom";
 import { fb } from '../firebase'
-
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { stringify } from '@firebase/util';
 
 const db = fb.firestore()
 const Blogs = db.collection('create_blog');
@@ -10,7 +14,6 @@ const Blogs = db.collection('create_blog');
 const Bloglist = () => {
   
   const [blogslist, setblogs] = useState([]);
-  
 
     useEffect(() => {
         // Subscribe to query with onSnapshot
@@ -30,28 +33,39 @@ const Bloglist = () => {
       }, []);
 
     return (
-        <div  className='BlogDisplay'>
+      <div className='BlogDisplay'>
 
 
             {
           blogslist.map(blog => (
-            <div key={Blogs.id}>
-                  <div key={blog.id}> 
-                    <p>{blog.Title}</p>
-                    <img alt='image' src={blog.Image}></img>
-                    <p >{blog.Body.substring(0, 40)}</p>
-                        {/* <p>body: {blog.Body} </p> */}
-                        <p>Date: {blog.Date} </p>
-                        <p>Tags: {blog.Tag} </p>
-                        
-                <Link to={"/show/"+blog.id}
-                    className="mr-2 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 border border-indigo-500 rounded"
+            
+            <div key={blog.id} className='cards'> 
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={require(`${blog.Image}` ||  './placeholder.jpg')} alt='Image'/>
+      <Card.Body>
+                  <Card.Title>{ blog.Title}</Card.Title>
+        <Card.Text>
+          {blog.Body.substring(0, 40)}
+                  </Card.Text>
+                  <ListGroup className="list-group-flush">
+                    <ListGroup.Item>{ blog.Tag}</ListGroup.Item>
+                    <ListGroup.Item>{ blog.Date}</ListGroup.Item>
+        
+                  </ListGroup>
+                  
+        <Link to={"/show/"+blog.id}
+                    className="mr-2 bg-indigo-500 text-black font-bold py-2 px-3 border border-indigo-500 rounded"
                     >Read More
-                        </Link>
+              </Link>
+                </Card.Body>
+               
+              </Card>                       
               </div>  
-              </div>
           )).sort()}
-       
+           
+        
+      
+        
             
 
     </div>

@@ -16,40 +16,62 @@ const CreateBlog = () => {
     const [file, setFile] = useState("");
     const [img,Seturl ]= useState('');
 
-    
+  
     function handleChange(event) {
         const fileimg = event.target.files[0];
+        console.log(fileimg)
         setFile(fileimg);
-        const storageRef = store.ref("files/" + fileimg.name);
-        // const upload = store.uploadBytesResumable(storageRef, file);
-        storageRef.put(file).on(
+        // const storageRef = store.ref(`files/${fileimg.name}`);
+        
+        
+    };
+    const handleupload = () => {
+        const uploadTask = store.ref(`images/${file.name}`).put('image');
+        uploadTask.on(
         "state_changed",
         (snap) => {
             console.log('percent');
         },
             (err) => {
                         console.log(err);
-
         },
-        async () => {
-          const url = await storageRef.getDownloadURL();
-            Seturl(url);
+            () => {
+                store
+                    .ref("images")
+                    .child(file.name)
+                    .getDownloadURL()
+                    .then(url => {
+                        console.log(url)
+                        Seturl(url);
+                    
+                    });
 
-        }
-      );
-    
+            }
 
-        // const uploadTask = store.uploadBytesResumable(storageRef, file);
-        // store.getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-        //     console.log(url);
-        //      Seturl(url);
-    //  });
         
-    };
+      );
+        
+    }
+    // storageRef.put(file).on(
+    //     "state_changed",
+    //     (snap) => {
+    //         console.log('percent');
+    //     },
+    //         (err) => {
+    //                     console.log(err);
+    //     },
+    //         async () => {
+    //             store
+    //                 .ref("images")
+    //             .child(fileimg.name)
+    //       const url = await storageRef.getDownloadURL();
+    //         Seturl(url);
+    //         alert('Image uploaded!')
 
     const Submit = (e) => {
         
         e.preventDefault();
+        handleupload();
         Blogslist.add({
             Title: title,
             Body: body,
