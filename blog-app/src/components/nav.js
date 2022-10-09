@@ -7,20 +7,20 @@ const NavBar = () => {
   return (
    <div>
     <nav id="navbar"  className='Nav'>
-        <Link to='/'><h3 className='icon-name'>Brunda Revadi</h3></Link>
+        <Link to='/'><h5 className='icon-name'>Brunda Revadi</h5></Link>
         <div className="links">
 
                   <ul>
-                      <Router><Link  to='./about'><li>About</li></Link></Router>
-                      <Router><Link to='/contact'><li>Contact</li></Link></Router>
-                     <Router> <Link to='/portfolio'><li>Portfolio</li></Link></Router>
+
+            <Router> <Link to='/portfolio'><li>Portfolio</li></Link></Router>
+            <div className='SearchField'>
+                  <form className='SearchForm'>
+            <input className="Inputform" placeholder='Search'></input>
+            <button type='submit'>Submit</button></form></div>
                              
             </ul>
         </div>
-              <div className='SearchField'>
-                  <form className='SearchForm'>
-            <input className="Inputform"></input>
-            <button type='submit'>Submit</button></form></div>
+              
     
     </nav>
    </div>

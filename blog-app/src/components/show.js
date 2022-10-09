@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { fb } from '../firebase'
+import Card from 'react-bootstrap/Card'
 const DB = fb.firestore()
 const Blogslist = DB.collection('create_blog');
 
@@ -16,16 +17,27 @@ const BlogView = () => {
     });
 return (
     <div>
-            <div>
+            
             <div className="w-full max-w-2xl mx-auto">       
-                <h1 className="text-2xl">
+                <h1 className="heading">
                     <span>{blog.Title}</span>
                 </h1>
+             
+                <div  className="bodyread">
                 <p>{blog.Body}</p>
-
-            </div>            
-        </div>        
-        </div>
+                <p>{blog.Tag}</p>
+                    <p>Created on : {blog.Date}</p>
+                    <div className="Author">
+                        <p>Author: Brunda Revadi</p>
+                    </div>
+                    </div>
+            
+            </div>
+                        
+</div>
+                
+               
+             
 
 );
 }

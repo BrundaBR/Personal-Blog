@@ -40,8 +40,9 @@ const Bloglist = () => {
           blogslist.map(blog => (
             
             <div key={blog.id} className='cards'> 
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={require(`${blog.Image}` ||  './placeholder.jpg')} alt='Image'/>
+              <Card style={{ width: '10rem' }}>
+                <Card.Img variant="top" src={blog.Image} alt='Image' />
+                {/* {require($'{blog.Image}')} */}
       <Card.Body>
                   <Card.Title>{ blog.Title}</Card.Title>
         <Card.Text>
@@ -59,7 +60,8 @@ const Bloglist = () => {
               </Link>
                 </Card.Body>
                
-              </Card>                       
+              </Card>  
+              
               </div>  
           )).sort()}
            

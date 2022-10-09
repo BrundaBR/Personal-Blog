@@ -1,16 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing:none;
+}
+
+:root{
+    --color-main:#6D6875;
+    --color-rose:#B5838D;
+    --color-pink:#E5989B;
+    --color-skin:#FFCDB2;
+    --color-dusky-light:#E0E2DB;
+    --font-blog:'Merriweather', serif;
+}
 
 .Nav {
-    padding: 0;
+    background-color: var(--color-rose);
+    font-family: var(--font-blog);
+    font-weight: 900;
+    padding: 10px;
     margin: 0;
     display: flex;
     justify-content: space-around;
     min-height: 10vh;
-    background-color: beige;
     text-decoration: none;
     width: 100%; 
 
 }
 .Nav a{
+    font-family: var(--font-blog);
+        font-weight: 900;
+    margin-top: 2vh;
     text-decoration: none;
     color: black;
 
@@ -21,14 +45,18 @@
 }
 
 .links ul{
-    text-decoration: none;
-    width: 50%;
+    font-family: var(--font-blog);
+    font-weight: 900;
+    padding: 0;
+    text-align: center;
     display: flex;
     justify-content: space-around;
     list-style: none;
 }
 .links li,.links a{
-    padding-left: 10px;
+    font-family: var(--font-blog);
+        font-weight: 900;
+    padding-right: 5px;
     text-decoration: none;
     color: black;
 }
@@ -36,10 +64,27 @@
     color: brown;
     transition: width 2s, height 4s;
 }
+
 .SearchForm{
-    margin-top: 2vh;
+    margin-top: 1.5vh;
+
     }
+.SearchForm input{
+    padding: 2px;
+    border-radius: 2px white;
+}
+.SearchForm button{
+    font-family: var(--font-blog);
+    font-weight: 900;
+    background-color: var(--color-main);
+    color:white;
+    padding: 2px;
+    border-radius: 2px white;
+   
+}
 .AdminForm{
+    font-family: var(--font-blog);
+        font-weight: 900;
     justify-content: space-between;
     padding-left: 100px;
 
@@ -61,7 +106,7 @@
     
 }
 .BlogDisplay,.component{
-    max-width: 90%;
+    width: 80%;
     display: flex;
     justify-content: space-between;  
     float: left;
@@ -72,36 +117,91 @@
     padding-left: 20px;
 }
 
-.TagsBar ,.Tags{
-            position: fixed;
-            top:20vh;
-            right: 0;
-            width: 15%;
-            height: 100%;
-            justify-content: space-around;
-            padding: 10px;
-}
-.Tags h3{
-    text-align: center; 
 
-}
-.footbar{
-    bottom: 0;
-    position: fixed;
+/* Footer */
+/* .footbar{
+    bottom: 0px;
     width: 100%;
-    height: 50px;
+    height: 100px;
+    position: relative;
+    
     display: flex;    
     background-color: antiquewhite;
 
 }
 .footbar ,.copywrite p{
     text-align: center;
+} */
+.portfolio{
+    display: block;
+    justify-content: space-around;
+    padding: 50px;
+    padding-top: 10px;
+}
+.profilemade{
+    width: 100%;
+    
+}
+.detail{
+    padding: 90px;
+}
+/* PROFILE IMAGE */
+/* .profile {
+    align-items: center;
+    width: 15rem;
+    height: 19rem;
+    position: relative;
+    left: calc(50% - 7rem);
+    margin-top: 7rem;
+    border-radius: 12rem 12rem 0 0;
+} */
+h5{
+    text-align: center;
+    padding: 0px;
+} 
+.projects{
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    display: block;
+    width: 100%;
+
+}
+.project{
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+}
+.About{
+    text-align: center;
+    padding: 20px;
+    align-items: center;
+
+}
+.About ,.aboutcard{
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+
+}
+/* show */
+.heading{
+    font-family: var(--font-blog);
+    font-weight: 800;
+    text-align: center;
+    padding: 20px;
+}
+.bodyread{
+    font-family: var(--font-blog);
+    padding: 50px;
+    font-weight: 500;
 
 }
 
 /*mobile view*/
-
-@media only screen and (max-width:848px){
+@media only screen and (max-width:600px){
 .Nav {
         padding: 0;
         margin: 0;
@@ -110,15 +210,17 @@
         background-color: beige;
         text-decoration: none;
         width: 100%;
-
     }
     .icon-name{
+        padding: 10px;
         text-align: center;
 }
 .SearchForm{
     text-align: center;
+    padding-left: 5px;
 }
 .links a,.Nav a{
+    padding: 10px;
     text-align: center;
 }
 .links ul ,.links li{
@@ -127,33 +229,61 @@
     list-style: none;
     color: black;
 }
-
 .links li:hover {
     color: brown;
     transition: width 2s, height 4s;
 }
-
-
 .TagsBar,
 .Tags {
-    background: rgb(5, 68, 104);
-    display: none;
-    
-    
+    display: none;   
 }
-
-
-
 .BlogDisplay,
 .component {
+    padding: 20px;
     align-items: center;
-    max-width: 100%;
+    width: 100%;
     display: flex;
-        flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column;
 }
-}
+
 .cards {
     padding-bottom: 20px;
     align-items: center;
+}
+}
+
+/*SOCIALS*/
+.socials a{
+    text-align: center;
+    color:black;
+    font-size: 1.5rem;
+    padding: 2px;
+}
+
+@media only screen and (max-width:1024px) {
+/* .TagsBar,
+.Tags {
+    position: relative;
+    top: 20vh;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.Tags h3 {
+    text-align: center;
+    padding: 10px;
+
+} */
+.BlogDisplay,
+.component {
+    position: relative;
+    display: flex;
+}
+
+.cards {
+    align-items: center;
+}
 }

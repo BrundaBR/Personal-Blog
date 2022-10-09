@@ -20,8 +20,8 @@ const App = () => {
         </header>
         <Switch>
          <Route path='/'  exact component={HomePage}/>
-        <Route path='/about' component={About} />
-        <Route path='/contact' component={Contact} />
+        {/* <Route path='/about' component={About} />
+        <Route path='/contact' component={Contact} /> */}
         <Route path='/portfolio' component={Portfolio} />
           <Route path='/admin-page-onlyadmin' component={Admin} />
            <Route path='/general'  exact component={General}/>
@@ -31,7 +31,7 @@ const App = () => {
         </Switch>
         
         
-      <FooterBar />
+      {/* <FooterBar /> */}
 
       </div>
       
