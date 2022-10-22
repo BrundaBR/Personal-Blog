@@ -2,6 +2,7 @@ import React from "react";
 import { AiFillGithub,AiFillInstagram,AiFillLinkedin } from 'react-icons/ai';
 import img from './profilemade.jpg';
 import amazon from './amazon.png';
+import oyemoney from './oyemoney.jpg';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -11,7 +12,7 @@ const Portfolio = () => {
       <div className="portfolio">
         <div className="detail">
        
-      <img className="profilemade" src={img}></img>
+      {/* <img className="profilemade" src={img}></img> */}
             </div>
         <h5>About</h5>
             
@@ -49,20 +50,21 @@ Python, Java, C++, Web development & design, Linux, MySQL/sqlite3, Automation an
         <Card.Text>
                   Building Applications and supporting opertains team of Amazon Prime video.<br></br>
                   Impact: Contributing in increasing productivity of operations teams.
+                  <br></br><br></br>
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>Skills: SQL · Automation · Full-Stack Development · Python (Programming Language) · Linux · Java</ListGroup.Item>
-        <ListGroup.Item>Experience: 01-08-2022 to Current</ListGroup.Item>
+        <ListGroup.Item>Experience: 01-08-2022 to Current</ListGroup.Item><br></br><br></br>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="https://amazon.com">Explore</Card.Link>
+        <Card.Link href="https://amazon.com">Explore</Card.Link> 
       </Card.Body>
             </Card>
             <br></br>
                     <Card className="experience" >
       
-              <Card.Img variant="top" src="" />
+              <Card.Img variant="top" src={ oyemoney} />
       <Card.Body>
         <Card.Title>Data science Intern at Oyemoney.inc</Card.Title>
                 <Card.Text>

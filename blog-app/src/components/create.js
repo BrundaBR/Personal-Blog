@@ -1,9 +1,12 @@
 import { store, fb } from '../firebase';
 import React, { useState } from 'react';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 const DB = fb.firestore();
 const Blogslist = DB.collection('create_blog');
+
 
 
 const CreateBlog = () => {
@@ -16,37 +19,22 @@ const CreateBlog = () => {
     const [img, Seturl] = useState('');
     const [progresspercent, setProgresspercent] = useState(0);
 
-//   const uploadFile = async file => {
-//     const formData = new FormData();
-//     formData.append("avatar", file);
-
-//     return await axios.post(UPLOAD_ENDPOINT, formData, {
-//       headers: {
-//         "content-type": "multipart/form-data"
-//       }
-//     });
-//   };
-
-//   const handleOnChange = e => {
-//     console.log(e.target.files[0]);
-//     setFile(e.target.files[0]);
-//   };
-  
-    const handleChange =  (e) => {
+   
+    const handleChange = (e) => {
         const fileimg = e.target.files[0];
         setFile(fileimg);
-         handleupload(fileimg);
+        handleupload(fileimg);
 
     };
-    const handleupload =  (file) => {
+    const handleupload = (file) => {
         
         const storageRef = ref(store, `files/${file.name}`);
-        const uploadTask =  uploadBytesResumable(storageRef, file);
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
         uploadTask.on(
             "state_changed",
             (snapshot) => {
-                const progress =Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
                 setProgresspercent(progress);
                 console.log(progress)
 
@@ -72,7 +60,7 @@ const CreateBlog = () => {
             Body: body,
             Date: date,
             Tag: tag,
-            Image:img
+            Image: img
         }).then((docRef) => {
             alert("Data added")
             e.target.reset();
@@ -84,33 +72,36 @@ const CreateBlog = () => {
            
 
     };
-    return (
-        <div>
+
+        return (
+        
+            <div>
            
 
-            <form className="AdminForm" onSubmit={(event) => { Submit(event) }} >
-                <input type="text" placeholder="Title"
-                    onChange={(e) => { SetTitle(e.target.value) }} required />
+                <form className="AdminForm" onSubmit={(event) => { Submit(event) }} >
+                    <input type="text" placeholder="Title"
+                        onChange={(e) => { SetTitle(e.target.value) }} required /><br></br>
 
-                <textarea name="content" type="text" placeholder="write your content here"
-                    rows="10" cols="150" onChange={(e) => { SetBody(e.target.value) }} required >
-                </textarea>
-                <input type='date' placeholder='Date' onChange={(e) => { SetDate(e.target.value) }} required ></input>
-                <input type='text' placeholder='Tag' onChange={(e) => { SetTag(e.target.value) }} required ></input>
-                <input type="file" onChange={handleChange} accept="/image/*" />
+                    <textarea name="content" type="text" placeholder="write your content here"
+                        rows="30" cols="100" onChange={(e) => { SetBody(e.target.value) }} required >
+                    </textarea><br></br>
+                    
+                    <input type='date' placeholder='Date' onChange={(e) => { SetDate(e.target.value) }} required ></input>
+                    <input type='text' placeholder='Tag' onChange={(e) => { SetTag(e.target.value) }} required ></input>
+                    <input type="file" onChange={handleChange} accept="/image/*" />
                 
 
-            <button type="submit" >Submit</button>
-            </form>
-            <div>
+                    <button type="submit" >Submit</button>
+                </form>
+                <div>
 
+                </div>
+                <div className='loading'><p>Uploading Progress : {progresspercent}%</p></div>
+            
             </div>
-         
-            {progresspercent}%
-        </div>
-    );
+        );
     
+    };
 
-};
 
 export default CreateBlog;

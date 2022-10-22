@@ -4,7 +4,7 @@ import CreateBlog from "./create";
 const Admin = () => {
     return (
         <div>
-            <h1>Admin Page</h1>
+            <h3 className="adminheading">Admin Page</h3>
         
             <CreateBlog />
 

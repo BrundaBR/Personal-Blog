@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { stringify } from '@firebase/util';
+import Markdown from 'markdown-to-jsx';
 
 const db = fb.firestore()
 const Blogs = db.collection('create_blog');
@@ -14,6 +15,7 @@ const Blogs = db.collection('create_blog');
 const Bloglist = () => {
   
   const [blogslist, setblogs] = useState([]);
+  const [body, SetBody] = useState('');
 
     useEffect(() => {
         // Subscribe to query with onSnapshot
@@ -25,6 +27,7 @@ const Bloglist = () => {
           }));
           // Update state
           setblogs(data);
+          SetBody(data.Body);
 
         });
 
@@ -40,13 +43,14 @@ const Bloglist = () => {
           blogslist.map(blog => (
             
             <div key={blog.id} className='cards'> 
-              <Card style={{ width: '10rem' }}>
+              <Card style={{ width: '15rem' }}>
                 <Card.Img variant="top" src={blog.Image} alt='Image' />
                 {/* {require($'{blog.Image}')} */}
       <Card.Body>
                   <Card.Title>{ blog.Title}</Card.Title>
-        <Card.Text>
-          {blog.Body.substring(0, 40)}
+                  <Card.Text>
+                    <Markdown>{blog.Body.substring(0, 40)}</Markdown>
+          {/* {blog.Body.substring(0, 40)} */}
                   </Card.Text>
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>{ blog.Tag}</ListGroup.Item>

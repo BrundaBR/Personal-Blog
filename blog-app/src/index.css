@@ -29,15 +29,14 @@
     min-height: 10vh;
     text-decoration: none;
     width: 100%; 
-
 }
+
 .Nav a{
     font-family: var(--font-blog);
-        font-weight: 900;
+    font-weight: 900;
     margin-top: 2vh;
     text-decoration: none;
     color: black;
-
 }
 .Nav a:hover{
     color: brown;
@@ -53,6 +52,7 @@
     justify-content: space-around;
     list-style: none;
 }
+
 .links li,.links a{
     font-family: var(--font-blog);
         font-weight: 900;
@@ -69,10 +69,12 @@
     margin-top: 1.5vh;
 
     }
+
 .SearchForm input{
     padding: 2px;
     border-radius: 2px white;
 }
+
 .SearchForm button{
     font-family: var(--font-blog);
     font-weight: 900;
@@ -80,24 +82,32 @@
     color:white;
     padding: 2px;
     border-radius: 2px white;
-   
 }
+
 .AdminForm{
     font-family: var(--font-blog);
-        font-weight: 900;
+    font-weight: 900;
     justify-content: space-between;
-    padding-left: 100px;
+    padding: 50px;
 
 }
+.loading,.adminheading {
+    font-family: var(--font-blog);
+    font-weight: 900;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+
 .AdminForm input{
     padding: 10px;
-    
 }
+
 .AdminForm button{
  margin: 0px;
- background-color: lightblue;
- color: black;
- border-radius: 1 rem;
+ background-color: var(--color-rose);
+ color: white;
+ border-radius: 2px;
  width: 100px;
 }
 
@@ -108,15 +118,32 @@
 .BlogDisplay,.component{
     width: 80%;
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-evenly;  
     float: left;
     left:0;
-   
-}
-.cards{
-    padding-left: 20px;
+
 }
 
+.cards{
+    padding-left: 10px;
+}
+.experiencelist{
+    align-content: center;
+    padding: 50px;
+    justify-content: center;
+        display: flex;
+        align-items: center;
+}
+.experiencelist img{
+    width: 100%;
+    height: 20%;
+}
+.experience{
+    padding: 50px;
+    width: 50%;
+    height: 50%;
+   
+}
 
 /* Footer */
 /* .footbar{
@@ -138,12 +165,15 @@
     padding: 50px;
     padding-top: 10px;
 }
+
 .profilemade{
     width: 100%;
+    height: 20%;
     
 }
 .detail{
-    padding: 90px;
+    justify-content: center;
+    align-items: center;
 }
 /* PROFILE IMAGE */
 /* .profile {
@@ -184,8 +214,8 @@ h5{
     text-align: center;
     position: relative;
     width: 100%;
-
 }
+
 /* show */
 .heading{
     font-family: var(--font-blog);
@@ -193,6 +223,7 @@ h5{
     text-align: center;
     padding: 20px;
 }
+
 .bodyread{
     font-family: var(--font-blog);
     padding: 50px;
