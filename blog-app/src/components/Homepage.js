@@ -10,7 +10,7 @@ const HomePage = () => {
     return (
         <div>
         <div>
-            <h3 className="recentblogs">Recent Uploads</h3>
+            <h4 className="recentblogs">Recent Uploads</h4>
             <div className="component">
             <Bloglist />
             <div className="Tags">
@@ -21,27 +21,18 @@ const HomePage = () => {
         <div className="contact">
      
                 <Card >
-                                    <h3 className="contact">Contact</h3>
+    <h3 className="contact_head">Contact</h3>
 
      <form >
 
-    <label >First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name.." /><br></br>
+    <label >Email</label><br></br>
+    <input type="text" id="fname" name="firstname" placeholder="Email.." /><br></br><br></br>
 
-    <label >Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name.." /><br></br>
-<label >Comment</label>
-    <input type="text" id="comment" name="comment" placeholder="comment" /><br></br>
+ 
+<label >Share your thoughts!</label>
+    <input type="text" id="comment" name="comment" placeholder="Comment" /><br></br>
 
-    {/* <label >Country</label> */}
-    {/* <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select> */}
-    
-
-   
+   <br></br>
     <input type="submit" value="Submit" />
 
                     </form>

@@ -44,17 +44,17 @@ const Bloglist = () => {
             
             <div key={blog.id} className='cards'> 
               <Card style={{ width: '15rem' }}>
-                <Card.Img variant="top" src={blog.Image} alt='Image' />
+                <Card.Img variant="top" src={blog.Image} style={{ width: '15rem' }} alt='Image' />
                 {/* {require($'{blog.Image}')} */}
       <Card.Body>
                   <Card.Title>{ blog.Title}</Card.Title>
                   <Card.Text>
-                    <Markdown>{blog.Body.substring(0, 40)}</Markdown>
+                    <Markdown>{blog.Body.substring(0, 30)}</Markdown>
           {/* {blog.Body.substring(0, 40)} */}
                   </Card.Text>
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item>{ blog.Tag}</ListGroup.Item>
-                    <ListGroup.Item>{ blog.Date}</ListGroup.Item>
+                    {/* <ListGroup.Item>{ blog.Tag}</ListGroup.Item> */}
+                    <ListGroup.Item>Created on: { blog.Date}</ListGroup.Item>
         
                   </ListGroup>
                   

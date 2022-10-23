@@ -27,19 +27,22 @@ const BlogView = () => {
    
   
 
-            <div>
+            <div className="details_show">
             
                 <div className="w-full max-w-2xl mx-auto">
-                    <h1 className="heading">
-                        <span>{blog.Title}</span>
+                    <h1 className="heading_blog">
+                        <span>{blog.Title}</span><br></br><br></br>
+                        <img class="blog_img" src={blog.Image}></img>
                     </h1>
                     <div className="bodyread">
                         <Markdown>{body}</Markdown>
-                        <p>{blog.Tag}</p>
+                         </div>
+                        <div className="details_blog">
+                        <p>Tagged under: {blog.Tag}</p>
                         <p>Created on : {blog.Date}</p>
                         <div className="Author">
                             <p>Author: Brunda Revadi</p>
-                        </div>
+                       </div>
                     </div>
             
                 </div>

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 const TagsBar = () => {
     return (
-        <div>
+        <div className="tag_links">
             <h3>Search with Tags</h3>
             
             <ul>
